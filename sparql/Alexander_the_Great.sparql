@@ -1,0 +1,11 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dbp-owl: <http://dbpedia.org/ontology/>
+PREFIX dbp-resource: <http://dbpedia.org/resource/>
+PREFIX dbp-category: <http://dbpedia.org/resource/Category:>
+
+select distinct ?events where {
+    ?events dcterms:subject dbp-category:Battles_of_Alexander_the_Great .
+    ?events rdf:type dbp-owl:Event .
+}

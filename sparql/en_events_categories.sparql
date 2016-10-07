@@ -1,0 +1,14 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dbp-owl: <http://dbpedia.org/ontology/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+
+select distinct ?label where {
+    ?categories rdf:type skos:Concept .
+    ?events dcterms:subject ?categories .
+    ?events rdf:type dbp-owl:Event .
+    ?categories rdfs:label ?label .
+    FILTER regex(?label, "^[^0-9]+$", "i" )
+}

@@ -1,0 +1,11 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dbp-owl: <http://dbpedia.org/ontology/>
+PREFIX dbp-resource: <http://ja.dbpedia.org/resource/>
+PREFIX dbp-category: <http://ja.dbpedia.org/resource/Category:>
+
+select distinct ?events where {
+    ?events dbp-owl:wikiPageWikiLink dbp-resource:独ソ戦 .
+    ?events rdf:type dbp-owl:Event .
+    dbp-resource:独ソ戦 dbp-owl:wikiPageWikiLink ?events .
+}
